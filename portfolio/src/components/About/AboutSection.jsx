@@ -1,5 +1,6 @@
 import React from 'react';
 import { Facebook, Dribbble, Instagram, Linkedin } from 'lucide-react';
+import profileImage from "../../assets/profileImage.jpg";
 
 // Add keyframe animation for the download icon
 const iconAnimation = `
@@ -11,10 +12,10 @@ const iconAnimation = `
 
 export default function AboutSection() {
     const socialLinks = [
-        { icon: Facebook, color: 'text-purple-600', href: '#' },
-        { icon: Dribbble, color: 'text-purple-600', href: '#' },
-        { icon: Instagram, color: 'text-purple-600', href: '#' },
-        { icon: Linkedin, color: 'text-purple-600', href: '#' }
+        { icon: Facebook, color: 'text-[#32373D]', href: '#' },
+        { icon: Dribbble, color: 'text-[#32373D]', href: '#' },
+        { icon: Instagram, color: 'text-[#32373D]', href: '#' },
+        { icon: Linkedin, color: 'text-[#32373D]', href: '#' }
     ];
 
     return (
@@ -27,7 +28,7 @@ export default function AboutSection() {
                             <div className="relative">
                                 <div className="bg-gray-100 rounded-2xl overflow-hidden shadow-lg">
                                     <img
-                                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop"
+                                        src={profileImage}
                                         alt="Professional Portrait"
                                         className="w-full h-auto object-cover"
                                     />
@@ -49,7 +50,7 @@ export default function AboutSection() {
                                     })}
                                     <a
                                         href="#"
-                                        className="text-purple-600 hover:scale-110 transition-transform duration-200"
+                                        className="text-[#32373D] hover:scale-110 transition-transform duration-200"
                                     >
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                             <path d="M22 8.608v8.142a3.25 3.25 0 0 1-3.25 3.25H5.25A3.25 3.25 0 0 1 2 16.75V8.608l9.652 5.056a.75.75 0 0 0 .696 0L22 8.608Z" />
@@ -80,11 +81,11 @@ export default function AboutSection() {
                                     onClick={() => {
                                         document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
                                     }}
-                                    className="bg-purple-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-purple-700 transition-colors duration-200 shadow-lg hover:shadow-xl cursor-pointer"
+                                    className=" text-white px-8 py-3 rounded-lg font-medium hover:bg-[#1D1E21] transition-colors duration-200 shadow-lg hover:shadow-xl cursor-pointer"style={{ backgroundColor: "#32373D" }}
                                 >
                                     My Projects
                                 </button>
-                                <button className="px-8 py-3 rounded-lg font-medium border-2 border-gray-300 hover:border-purple-600 transition-all duration-300 flex items-center space-x-2 group cursor-pointer">
+                                <button className="px-8 py-3 rounded-lg font-medium border-2 border-gray-300 hover:border-[#32373D] transition-all duration-300 flex items-center space-x-2 group cursor-pointer">
                                     <style>{iconAnimation}</style>
                                     <svg
                                         width="20"
@@ -93,7 +94,7 @@ export default function AboutSection() {
                                         fill="none"
                                         stroke="currentColor"
                                         strokeWidth="2"
-                                        className="text-gray-600 group-hover:text-purple-600 transition-colors duration-300"
+                                        className="text-gray-600 group-hover:text-[#32373D] transition-colors duration-300"
                                         style={{
                                             animation: 'moveUpDown 1.5s ease-in-out infinite',
                                         }}
@@ -102,7 +103,7 @@ export default function AboutSection() {
                                         <polyline points="7 10 12 15 17 10" />
                                         <line x1="12" y1="15" x2="12" y2="3" />
                                     </svg>
-                                    <span className="text-gray-600 group-hover:text-purple-600 transition-colors duration-300">Download CV</span>
+                                    <span className="text-gray-600 group-hover:text-[#32373D] transition-colors duration-300">Download CV</span>
                                 </button>
                             </div>
                         </div>

@@ -76,7 +76,7 @@ export default function PortfolioSection() {
 
               {/* Content */}
               <div className="p-6 space-y-3">
-                <p className="text-sm font-semibold text-purple-600 tracking-wide">
+                <p className="text-sm font-semibold text-[#32373D] tracking-wide">
                   {project.category}
                 </p>
                 <h3 className="text-xl font-bold text-gray-900">
@@ -85,7 +85,7 @@ export default function PortfolioSection() {
                 <p className="text-gray-600 text-sm leading-relaxed">
                   {project.description}
                 </p>
-                <button className="flex items-center whitespace-nowrap space-x-2 text-gray-900 font-semibold group border border-transparent hover:border-purple-600 hover:text-purple-600 rounded-lg px-4 py-2 transition-all duration-300 min-w-[120px] hover:min-w-[130px]">
+                <button className="flex items-center whitespace-nowrap space-x-2 text-gray-900 font-semibold group border border-transparent hover:border-[#1D1E21] hover:text-[#1D1E21] rounded-lg px-4 py-2 transition-all duration-300 min-w-[120px] hover:min-w-[130px]">
                   <span>Case Study</span>
                   <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
                 </button>
@@ -96,7 +96,7 @@ export default function PortfolioSection() {
 
         {/* More Project Button */}
         <div className="text-center">
-          <button className="bg-purple-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-purple-700 transition-colors duration-200 shadow-lg hover:shadow-xl cursor-pointer">
+          <button className="bg-[#32373D] text-white px-8 py-3 rounded-lg font-medium hover:bg-[#1D1E21] transition-colors duration-200 shadow-lg hover:shadow-xl cursor-pointer">
             More Project
           </button>
         </div>

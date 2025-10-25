@@ -40,7 +40,7 @@ export default function ServicesSection() {
               onClick={() => {
                 document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
               }}
-              className="bg-purple-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-purple-700 transition-colors duration-200 shadow-lg hover:shadow-xl cursor-pointer"
+              className="bg-[#32373D] text-white px-8 py-3 rounded-lg font-medium hover:bg-[#1D1E21] transition-colors duration-200 shadow-lg hover:shadow-xl cursor-pointer"
             >
               Say Hello!
             </button>

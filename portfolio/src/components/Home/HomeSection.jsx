@@ -1,4 +1,5 @@
 import React from 'react';
+import profileImage from "../../assets/profileImage.jpg";
 
 export default function HomeSection() {
   const stats = [
@@ -20,11 +21,11 @@ export default function HomeSection() {
                 <span className="text-gray-900">Nisal Ranasinghe</span>
               </h1>
               <p className="text-gray-700 text-lg leading-relaxed">
-                I'm a Freelance <span className="text-purple-600 font-medium">Full Stack Developer</span> based in Sri Lanka. I strives to build immersive and beautiful web applications through carefully crafted code and user-centric design.
+                I'm a Freelance <span className="text-[#32373D] font-medium">Full Stack Developer</span> based in Sri Lanka. I strives to build immersive and beautiful web applications through carefully crafted code and user-centric design.
               </p>
             </div>
 
-            <button className="bg-purple-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-purple-700 transition-colors duration-200 shadow-lg hover:shadow-xl">
+            <button className=" text-white px-8 py-3 rounded-lg font-medium hover:bg-purple-700 transition-colors duration-200 shadow-lg hover:shadow-xl" style={{ backgroundColor: "#32373D" }}>
               Say Hello!
             </button>
 
@@ -50,7 +51,7 @@ export default function HomeSection() {
           <div className="relative">
             <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=700&fit=crop"
+                src={profileImage}
                 alt="Brooklyn Gilbert"
                 className="w-full h-auto object-cover"
               />

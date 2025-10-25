@@ -36,15 +36,15 @@ export default function ContactSection() {
       icon: Mail,
       label: 'My Email:',
       value: 'sachindunisal09@gmail.com',
-      bgColor: 'bg-purple-100',
-      iconColor: 'text-purple-600'
+      bgColor: 'bg-gray-100',
+      iconColor: 'text-[#32373D]'
     },
     {
       icon: Phone,
       label: 'Call Me Now:',
       value: '071-774-9219',
-      bgColor: 'bg-purple-100',
-      iconColor: 'text-purple-600'
+      bgColor: 'bg-gray-100',
+      iconColor: 'text-[#32373D]'
     }
   ];
 
@@ -97,7 +97,7 @@ export default function ContactSection() {
                     <a
                       key={index}
                       href={social.href}
-                      className="text-purple-600 hover:text-purple-700 transition-colors duration-200"
+                      className="text-[#32373D] hover:text-[#1D1E21] transition-colors duration-200"
                     >
                       <Icon size={24} />
                     </a>
@@ -105,7 +105,7 @@ export default function ContactSection() {
                 })}
                 <a
                   href="#"
-                  className="text-purple-600 hover:text-purple-700 transition-colors duration-200"
+                  className="text-[#32373D] hover:text-[#313336] transition-colors duration-200"
                 >
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M22 8.608v8.142a3.25 3.25 0 0 1-3.25 3.25H5.25A3.25 3.25 0 0 1 2 16.75V8.608l9.652 5.056a.75.75 0 0 0 .696 0L22 8.608Z"/>
@@ -179,7 +179,7 @@ export default function ContactSection() {
 
                 <button
                   onClick={handleSubmit}
-                  className="bg-purple-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-purple-700 transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center space-x-2 cursor-pointer"
+                  className="bg-[#32373D] text-white px-8 py-3 rounded-lg font-medium hover:bg-[#1D1E21] transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center space-x-2 cursor-pointer"
                 >
                   <span>Submit</span>
                   <Send size={18} />

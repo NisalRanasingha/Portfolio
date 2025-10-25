@@ -103,7 +103,7 @@ export default function NavBar() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-purple-700 rounded-full flex items-center justify-center">
+            <div className="w-12 h-12 bg-[#32373D] rounded-full flex items-center justify-center">
               <span className="text-white font-bold text-xl">N</span>
             </div>
             <span className="text-2xl font-bold text-gray-900">Nisal Ranasinghe</span>
@@ -117,8 +117,8 @@ export default function NavBar() {
                 onClick={() => scrollToSection(link)}
                 className={`nav-link px-6 py-2 rounded-lg font-medium transition-all duration-200 cursor-pointer ${
                   activeLink === link
-                    ? 'bg-purple-600 text-white active-link'
-                    : 'text-gray-700 hover:text-purple-600'
+                    ? 'bg-[#32373D] text-white active-link'
+                    : 'text-[#32373D] hover:text-[#32373D]'
                 }`}
               >
                 {link}
@@ -126,7 +126,7 @@ export default function NavBar() {
             ))}
             <button 
               onClick={() => scrollToSection('contact')}
-              className="nav-link contact ml-4 px-6 py-2 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-all duration-200 cursor-pointer">
+              className="nav-link contact ml-4 px-6 py-2 bg-[#32373D] text-white rounded-lg font-medium hover:bg-[#1D1E21] transition-all duration-200 cursor-pointer">
               Contact
             </button>
           </div>
