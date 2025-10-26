@@ -128,7 +128,7 @@ export default function ContactSection() {
                   placeholder="Name*"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-0 py-3 border-b-2 border-gray-200 focus:border-purple-600 outline-none transition-colors duration-200 placeholder-gray-400"
+                  className="w-full px-0 py-3 border-b-2 border-gray-200 focus:border-[#1D1E21] outline-none transition-colors duration-200 placeholder-gray-400"
                 />
 
                 <input
@@ -137,7 +137,7 @@ export default function ContactSection() {
                   placeholder="Email*"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-0 py-3 border-b-2 border-gray-200 focus:border-purple-600 outline-none transition-colors duration-200 placeholder-gray-400"
+                  className="w-full px-0 py-3 border-b-2 border-gray-200 focus:border-[#1D1E21] outline-none transition-colors duration-200 placeholder-gray-400"
                 />
 
                 <input
@@ -146,7 +146,7 @@ export default function ContactSection() {
                   placeholder="Location*"
                   value={formData.location}
                   onChange={handleChange}
-                  className="w-full px-0 py-3 border-b-2 border-gray-200 focus:border-purple-600 outline-none transition-colors duration-200 placeholder-gray-400"
+                  className="w-full px-0 py-3 border-b-2 border-gray-200 focus:border-[#1D1E21] outline-none transition-colors duration-200 placeholder-gray-400"
                 />
 
                 <div className="grid grid-cols-2 gap-4">
@@ -156,7 +156,7 @@ export default function ContactSection() {
                     placeholder="Budget*"
                     value={formData.budget}
                     onChange={handleChange}
-                    className="w-full px-0 py-3 border-b-2 border-gray-200 focus:border-purple-600 outline-none transition-colors duration-200 placeholder-gray-400"
+                    className="w-full px-0 py-3 border-b-2 border-gray-200 focus:border-[#1D1E21] outline-none transition-colors duration-200 placeholder-gray-400"
                   />
                   <input
                     type="text"
@@ -164,7 +164,7 @@ export default function ContactSection() {
                     placeholder="Subject*"
                     value={formData.subject}
                     onChange={handleChange}
-                    className="w-full px-0 py-3 border-b-2 border-gray-200 focus:border-purple-600 outline-none transition-colors duration-200 placeholder-gray-400"
+                    className="w-full px-0 py-3 border-b-2 border-gray-200 focus:border-[#1D1E21] outline-none transition-colors duration-200 placeholder-gray-400"
                   />
                 </div>
 
@@ -174,7 +174,7 @@ export default function ContactSection() {
                   value={formData.message}
                   onChange={handleChange}
                   rows={4}
-                  className="w-full px-0 py-3 border-b-2 border-gray-200 focus:border-purple-600 outline-none transition-colors duration-200 placeholder-gray-400 resize-none"
+                  className="w-full px-0 py-3 border-b-2 border-gray-200 focus:border-[#1D1E21] outline-none transition-colors duration-200 placeholder-gray-400 resize-none"
                 />
 
                 <button
