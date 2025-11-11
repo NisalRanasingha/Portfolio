@@ -11,6 +11,16 @@ const iconAnimation = `
 `;
 
 export default function AboutSection() {
+    const handleDownloadCV = () => {
+        // Create a temporary link element
+        const link = document.createElement('a');
+        link.href = '/sanki_cv.pdf'; // Path to your CV in public folder
+        link.download = 'sanki_cv.pdf'; // Name for downloaded file
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
+
     const socialLinks = [
         { icon: Facebook, color: 'text-[#32373D]', href: '#' },
         { icon: Dribbble, color: 'text-[#32373D]', href: '#' },
@@ -79,13 +89,17 @@ export default function AboutSection() {
                             <div className="flex flex-wrap gap-4 pt-4">
                                 <button
                                     onClick={() => {
-                                        document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+                                        document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' });
                                     }}
-                                    className=" text-white px-8 py-3 rounded-lg font-medium hover:bg-[#1D1E21] transition-colors duration-200 shadow-lg hover:shadow-xl cursor-pointer"style={{ backgroundColor: "#32373D" }}
+                                    className="text-white px-8 py-3 rounded-lg font-medium hover:bg-[#1D1E21] transition-colors duration-200 shadow-lg hover:shadow-xl cursor-pointer"
+                                    style={{ backgroundColor: "#32373D" }}
                                 >
                                     My Projects
                                 </button>
-                                <button className="px-8 py-3 rounded-lg font-medium border-2 border-gray-300 hover:border-[#32373D] transition-all duration-300 flex items-center space-x-2 group cursor-pointer">
+                                <button 
+                                    onClick={handleDownloadCV}
+                                    className="px-8 py-3 rounded-lg font-medium border-2 border-gray-300 hover:border-[#32373D] transition-all duration-300 flex items-center space-x-2 group cursor-pointer"
+                                >
                                     <style>{iconAnimation}</style>
                                     <svg
                                         width="20"

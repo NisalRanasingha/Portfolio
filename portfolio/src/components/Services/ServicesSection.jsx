@@ -42,7 +42,7 @@ export default function ServicesSection() {
               }}
               className="bg-[#32373D] text-white px-8 py-3 rounded-lg font-medium hover:bg-[#1D1E21] transition-colors duration-200 shadow-lg hover:shadow-xl cursor-pointer"
             >
-              Say Hello!
+              Contact Me
             </button>
           </div>
 
