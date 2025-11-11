@@ -1,0 +1,13 @@
+[build]
+  # 1. Command to compile your code
+  command = "npm run build"
+  
+  # 2. Output folder (Vite default is 'dist')
+  publish = "dist" 
+  
+# Optional: Essential for single-page applications (like React Router)
+# This redirects any requested URL that doesn't exist to your index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
