@@ -1,13 +1,28 @@
+# netlify.toml
+
+# ==================================
+# 1. BUILD CONFIGURATION (MIME FIX)
+# ==================================
 [build]
-  # 1. Command to compile your code
+  # Tells Netlify to run your standard build script
   command = "npm run build"
-  
-  # 2. Output folder (Vite default is 'dist')
+  # Tells Netlify to serve the compiled output folder
+  # Change to "build" if you used Create React App
   publish = "dist" 
-  
-# Optional: Essential for single-page applications (like React Router)
-# This redirects any requested URL that doesn't exist to your index.html
+
+
+# ==================================
+# 2. REDIRECTS (FOR REACT ROUTER/SPA)
+# ==================================
+# This is crucial for single-page applications (SPAs)
+# It routes all unrecognized paths back to index.html
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+
+# ==================================
+# 3. FUNCTIONS (IF YOU USE THEM)
+# ==================================
+# [functions]
+#   directory = "netlify/functions"
