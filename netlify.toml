@@ -1,4 +1,5 @@
 redirectsOrigin = "config"
+headersOrigin = "config"
 plugins = []
 headers = []
 
