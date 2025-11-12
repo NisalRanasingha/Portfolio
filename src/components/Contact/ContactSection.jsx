@@ -7,7 +7,6 @@ export default function ContactSection() {
     name: '',
     email: '',
     location: '',
-    budget: '',
     subject: '',
     message: ''
   });
@@ -32,7 +31,7 @@ export default function ContactSection() {
 
   const validateForm = () => {
     if (!formData.name || !formData.email || !formData.location || 
-        !formData.budget || !formData.subject || !formData.message) {
+        !formData.subject || !formData.message) {
       setSubmitStatus({ 
         type: 'error', 
         message: 'Please fill in all required fields.' 
@@ -65,7 +64,6 @@ export default function ContactSection() {
         from_email: formData.email,
         to_email: 'sachindunisal09@gmail.com',  // Your email
         location: formData.location,
-        budget: formData.budget,
         subject: formData.subject,
         message: formData.message,
       };
@@ -91,7 +89,6 @@ export default function ContactSection() {
         name: '',
         email: '',
         location: '',
-        budget: '',
         subject: '',
         message: ''
       });
@@ -143,10 +140,10 @@ export default function ContactSection() {
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: '#' },
+    { icon: Facebook, href: 'https://www.facebook.com/share/1Bj5mEv4WD/?mibextid=wwXIfr' },
     { icon: Dribbble, href: '#' },
     { icon: Instagram, href: '#' },
-    { icon: Linkedin, href: '#' }
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/nisal-ranasinghe' }
   ];
 
   return (
@@ -265,26 +262,15 @@ export default function ContactSection() {
                   className="w-full px-0 py-3 border-b-2 border-gray-200 focus:border-[#1D1E21] outline-none transition-colors duration-200 placeholder-gray-400 disabled:opacity-50"
                 />
 
-                <div className="grid grid-cols-2 gap-4">
-                  <input
-                    type="text"
-                    name="budget"
-                    placeholder="Budget*"
-                    value={formData.budget}
-                    onChange={handleChange}
-                    disabled={isSubmitting}
-                    className="w-full px-0 py-3 border-b-2 border-gray-200 focus:border-[#1D1E21] outline-none transition-colors duration-200 placeholder-gray-400 disabled:opacity-50"
-                  />
-                  <input
-                    type="text"
-                    name="subject"
-                    placeholder="Subject*"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    disabled={isSubmitting}
-                    className="w-full px-0 py-3 border-b-2 border-gray-200 focus:border-[#1D1E21] outline-none transition-colors duration-200 placeholder-gray-400 disabled:opacity-50"
-                  />
-                </div>
+                <input
+                  type="text"
+                  name="subject"
+                  placeholder="Subject*"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  disabled={isSubmitting}
+                  className="w-full px-0 py-3 border-b-2 border-gray-200 focus:border-[#1D1E21] outline-none transition-colors duration-200 placeholder-gray-400 disabled:opacity-50"
+                />
 
                 <textarea
                   name="message"

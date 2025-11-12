@@ -3,24 +3,39 @@ import { Code } from 'lucide-react';
 
 export default function TechCarousel() {
   const scrollRef = useRef(null);
+  const animationRef = useRef(null);
 
   useEffect(() => {
     const sc = scrollRef.current;
     if (!sc) return;
 
-    let rafId = 0;
+    let rafId = null;
     const speed = 0.6;
 
     const step = () => {
+      if (!sc) return;
+      
       sc.scrollLeft += speed;
+      
+      // Reset scroll position for infinite loop
       if (sc.scrollLeft >= sc.scrollWidth / 2) {
-        sc.scrollLeft -= sc.scrollWidth / 2;
+        sc.scrollLeft = 0;
       }
+      
       rafId = requestAnimationFrame(step);
     };
 
-    rafId = requestAnimationFrame(step);
-    return () => cancelAnimationFrame(rafId);
+    // Small delay to ensure DOM is ready
+    const timeoutId = setTimeout(() => {
+      rafId = requestAnimationFrame(step);
+    }, 100);
+
+    return () => {
+      clearTimeout(timeoutId);
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+    };
   }, []);
 
   const technologies = [
@@ -38,7 +53,8 @@ export default function TechCarousel() {
     { name: 'Git', icon: '🔧', iconSrc: null },
   ];
 
-  const duplicatedTechs = [...technologies, ...technologies];
+  // Triple duplication for smoother infinite scroll
+  const duplicatedTechs = [...technologies, ...technologies, ...technologies];
 
   return (
     <section id="tech" className="pt-6 pb-3 px-6 bg-gray-50">
@@ -58,11 +74,14 @@ export default function TechCarousel() {
         <div 
           ref={scrollRef}
           className="flex gap-6 overflow-x-hidden py-3"
-          style={{ scrollBehavior: 'auto' }}
+          style={{ 
+            scrollBehavior: 'auto',
+            WebkitOverflowScrolling: 'touch'
+          }}
         >
           {duplicatedTechs.map((tech, index) => (
             <div
-              key={index}
+              key={`${tech.name}-${index}`}
               className="flex-shrink-0 w-48 h-28 bg-white rounded-xl shadow p-4 flex flex-col items-center justify-center transform hover:scale-105 transition-transform duration-300"
             >
               {tech.iconSrc ? (
@@ -82,8 +101,8 @@ export default function TechCarousel() {
       <div className="mt-1 flex gap-4 items-center justify-center">
         <div className="flex gap-2">
           <div className="w-3 h-3 bg-gray-400 rounded-full animate-pulse"></div>
-          <div className="w-3 h-3 bg-gray-300 rounded-full animate-pulse delay-150"></div>
-          <div className="w-3 h-3 bg-gray-200 rounded-full animate-pulse delay-300"></div>
+          <div className="w-3 h-3 bg-gray-300 rounded-full animate-pulse" style={{ animationDelay: '150ms' }}></div>
+          <div className="w-3 h-3 bg-gray-200 rounded-full animate-pulse" style={{ animationDelay: '300ms' }}></div>
         </div>
       </div>
     </section>

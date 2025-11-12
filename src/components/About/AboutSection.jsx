@@ -14,18 +14,18 @@ export default function AboutSection() {
     const handleDownloadCV = () => {
         // Create a temporary link element
         const link = document.createElement('a');
-        link.href = '/sanki_cv.pdf'; // Path to your CV in public folder
-        link.download = 'sanki_cv.pdf'; // Name for downloaded file
+        link.href = '/Nisal_Ranasinghe_cv.pdf'; // Path to your CV in public folder
+        link.download = 'Nisal_Ranasinghe_cv.pdf'; // Name for downloaded file
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
     };
 
     const socialLinks = [
-        { icon: Facebook, color: 'text-[#32373D]', href: '#' },
+        { icon: Facebook, color: 'text-[#32373D]', href: 'https://www.facebook.com/share/1Bj5mEv4WD/?mibextid=wwXIfr' },
         { icon: Dribbble, color: 'text-[#32373D]', href: '#' },
         { icon: Instagram, color: 'text-[#32373D]', href: '#' },
-        { icon: Linkedin, color: 'text-[#32373D]', href: '#' }
+        { icon: Linkedin, color: 'text-[#32373D]', href: 'https://www.linkedin.com/in/nisal-ranasinghe' }
     ];
 
     return (
@@ -59,7 +59,7 @@ export default function AboutSection() {
                                         );
                                     })}
                                     <a
-                                        href="#"
+                                        href='mailto:sachindunisal09@gmail.com'
                                         className="text-[#32373D] hover:scale-110 transition-transform duration-200"
                                     >
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
