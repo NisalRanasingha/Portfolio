@@ -1,28 +1,39 @@
-# netlify.toml
+redirectsOrigin = "config"
+plugins = []
+headers = []
 
-# ==================================
-# 1. BUILD CONFIGURATION (MIME FIX)
-# ==================================
+[functions]
+
+  [functions."*"]
+
 [build]
-  # Tells Netlify to run your standard build script
-  command = "npm run build"
-  # Tells Netlify to serve the compiled output folder
-  # Change to "build" if you used Create React App
-  publish = "dist" 
+publish = "/opt/build/repo/dist"
+publishOrigin = "config"
+commandOrigin = "config"
+command = "npm run build"
 
+  [build.environment]
 
-# ==================================
-# 2. REDIRECTS (FOR REACT ROUTER/SPA)
-# ==================================
-# This is crucial for single-page applications (SPAs)
-# It routes all unrecognized paths back to index.html
+  [build.processing]
+
+    [build.processing.css]
+
+    [build.processing.html]
+
+    [build.processing.images]
+
+    [build.processing.js]
+
+  [build.services]
+
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+from = "/*"
+to = "/index.html"
+status = 200
+force = false
 
-# ==================================
-# 3. FUNCTIONS (IF YOU USE THEM)
-# ==================================
-# [functions]
-#   directory = "netlify/functions"
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
