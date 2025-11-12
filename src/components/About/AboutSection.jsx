@@ -1,6 +1,5 @@
 import React from 'react';
 import { Facebook, Dribbble, Instagram, Linkedin } from 'lucide-react';
-import profileImage from "../../assets/profileImage.jpg";
 
 // Add keyframe animation for the download icon
 const iconAnimation = `
@@ -38,7 +37,7 @@ export default function AboutSection() {
                             <div className="relative">
                                 <div className="bg-gray-100 rounded-2xl overflow-hidden shadow-lg">
                                     <img
-                                        src={profileImage}
+                                        src="/profileImage.jpg"
                                         alt="Professional Portrait"
                                         className="w-full h-auto object-cover"
                                     />
