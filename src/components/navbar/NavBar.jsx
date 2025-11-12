@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function NavBar() {
   const [activeLink, setActiveLink] = useState('Home');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navLinks = ['Home', 'About', 'Process', 'Portfolio', 'Services'];
 
@@ -91,6 +92,7 @@ export default function NavBar() {
 
   const scrollToSection = (sectionId) => {
     setActiveLink(sectionId);
+    setIsMobileMenuOpen(false); // Close mobile menu when a link is clicked
     const element = document.getElementById(sectionId.toLowerCase());
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -133,13 +135,47 @@ export default function NavBar() {
 
           {/* Mobile menu button */}
           <div className="md:hidden">
-            <button className="text-gray-700 hover:text-purple-600">
+            <button 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-gray-700 hover:text-purple-600"
+            >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                {isMobileMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
               </svg>
             </button>
           </div>
         </div>
+
+        {/* Mobile menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden pb-4">
+            <div className="flex flex-col space-y-2">
+              {navLinks.map((link) => (
+                <button
+                  key={link}
+                  onClick={() => scrollToSection(link)}
+                  className={`nav-link px-4 py-3 rounded-lg font-medium transition-all duration-200 text-left ${
+                    activeLink === link
+                      ? 'bg-[#32373D] text-white'
+                      : 'text-[#32373D] hover:bg-gray-100'
+                  }`}
+                >
+                  {link}
+                </button>
+              ))}
+              <button 
+                onClick={() => scrollToSection('contact')}
+                className="nav-link contact px-4 py-3 bg-[#32373D] text-white rounded-lg font-medium hover:bg-[#1D1E21] transition-all duration-200 text-left"
+              >
+                Contact
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );
