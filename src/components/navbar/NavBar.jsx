@@ -3,8 +3,9 @@ import React, { useState, useEffect } from 'react';
 export default function NavBar() {
   const [activeLink, setActiveLink] = useState('Home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isManualScroll, setIsManualScroll] = useState(false);
 
-  const navLinks = ['Home', 'About', 'Process', 'Portfolio', 'Services'];
+  const navLinks = ['Home', 'About', 'Process', 'Project', 'Services'];
 
   // Listen for scroll to top event
   useEffect(() => {
@@ -15,7 +16,10 @@ export default function NavBar() {
     // Create intersection observer
     // Function to determine which section is most in view
     const determineActiveSection = () => {
-      const sections = ['home', 'about', 'process', 'portfolio', 'blog', 'services', 'contact'];
+      // Don't update if user manually clicked a link
+      if (isManualScroll) return;
+
+      const sections = ['home', 'about', 'process', 'project', 'services', 'contact'];
       let maxVisibleSection = null;
       let maxVisibility = 0;
 
@@ -65,7 +69,7 @@ export default function NavBar() {
     window.addEventListener('scroll', handleScroll);
 
     // Observe all sections
-    const sections = ['home', 'about', 'process', 'portfolio', 'blog', 'services', 'contact'];
+    const sections = ['home', 'about', 'process', 'project', 'services', 'contact'];
     sections.forEach((section) => {
       const element = document.getElementById(section);
       if (element) {
@@ -77,7 +81,7 @@ export default function NavBar() {
     
     // Clean up
     return () => {
-      const sections = ['home', 'about', 'process', 'portfolio', 'blog', 'services', 'contact'];
+      const sections = ['home', 'about', 'process', 'project', 'services', 'contact'];
       sections.forEach((section) => {
         const element = document.getElementById(section);
         if (element) {
@@ -88,14 +92,21 @@ export default function NavBar() {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('updateActiveLink', handleUpdateActiveLink);
     };
-  }, []);
+  }, [isManualScroll]);
 
   const scrollToSection = (sectionId) => {
     setActiveLink(sectionId);
-    setIsMobileMenuOpen(false); // Close mobile menu when a link is clicked
+    setIsMobileMenuOpen(false);
+    setIsManualScroll(true);
+    
     const element = document.getElementById(sectionId.toLowerCase());
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      
+      // Re-enable automatic active link detection after scroll completes
+      setTimeout(() => {
+        setIsManualScroll(false);
+      }, 1000);
     }
   };
 
@@ -127,7 +138,7 @@ export default function NavBar() {
               </button>
             ))}
             <button 
-              onClick={() => scrollToSection('contact')}
+              onClick={() => scrollToSection('Contact')}
               className="nav-link contact ml-4 px-6 py-2 bg-[#32373D] text-white rounded-lg font-medium hover:bg-[#1D1E21] transition-all duration-200 cursor-pointer">
               Contact
             </button>
@@ -168,7 +179,7 @@ export default function NavBar() {
                 </button>
               ))}
               <button 
-                onClick={() => scrollToSection('contact')}
+                onClick={() => scrollToSection('Contact')}
                 className="nav-link contact px-4 py-3 bg-[#32373D] text-white rounded-lg font-medium hover:bg-[#1D1E21] transition-all duration-200 text-left"
               >
                 Contact

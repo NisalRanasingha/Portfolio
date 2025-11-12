@@ -37,7 +37,7 @@ export default function AboutSection() {
                             <div className="relative">
                                 <div className="bg-gray-100 rounded-2xl overflow-hidden shadow-lg">
                                     <img
-                                        src="/profileImage.jpg"
+                                        src="/profileimage.jpg"
                                         alt="Professional Portrait"
                                         className="w-full h-auto object-cover"
                                     />

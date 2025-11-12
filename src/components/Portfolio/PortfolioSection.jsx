@@ -7,28 +7,28 @@ export default function PortfolioSection() {
       category: "UI/UX DESIGN",
       title: "Product Admin Dashboard",
       description: "Visual impressive aesthetics. Present the content as intuitively as possible for the user's convenience and efficiency.",
-      image: "https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=600&h=400&fit=crop",
+      image: "/neuro.jpg",
       bgColor: "from-pink-100 to-orange-100"
     },
     {
       category: "UI/UX DESIGN",
       title: "Product Admin Dashboard",
       description: "Designed an effective dashboard for product management, incorporating visuals and user efficiency.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+      image: "/jobportal.jpg",
       bgColor: "from-slate-800 to-slate-900"
     },
     {
       category: "UI/UX DESIGN",
       title: "Product Admin Dashboard",
       description: "Developed a modern admin panel with a focus on user experience, dashboard navigation for end users and so on.",
-      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop",
+      image: "/vijith.jpg",
       bgColor: "from-slate-100 to-slate-200"
     },
     {
       category: "UI/UX DESIGN",
       title: "Product Admin Dashboard",
       description: "Created a specialized dashboard for the interior office. Provides functionality for the user and so on.",
-      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop",
+      image: "/aquamate.jpg",
       bgColor: "from-amber-100 to-amber-50"
     },
     {
@@ -48,11 +48,11 @@ export default function PortfolioSection() {
   ];
 
   return (
-    <section id="portfolio" className="py-20 bg-white">
+    <section id="project" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold text-gray-900 mb-4">Portfolio</h2>
+          <h2 className="text-5xl font-bold text-gray-900 mb-4">Project</h2>
           <p className="text-gray-600 text-lg max-w-3xl mx-auto">
             Here's a selection of my recent work, showcasing my skills in creating user-centric and visually appealing interfaces.
           </p>
@@ -66,7 +66,7 @@ export default function PortfolioSection() {
               className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group"
             >
               {/* Image */}
-              <div className={`h-52 bg-gradient-to-br ${project.bgColor} overflow-hidden`}>
+              <div className={` bg-gradient-to-br ${project.bgColor} overflow-hidden`}>
                 <img
                   src={project.image}
                   alt={project.title}

@@ -39,18 +39,54 @@ export default function TechCarousel() {
   }, []);
 
   const technologies = [
-    { name: 'React', icon: '⚛️', iconSrc: null },
-    { name: 'Spring Boot', icon: '🍃', iconSrc: null },
-    { name: 'HTML5', icon: '📄', iconSrc: null },
-    { name: 'CSS3', icon: '🎨', iconSrc: null },
-    { name: 'JavaScript', icon: '📜', iconSrc: null },
-    { name: 'TypeScript', icon: '📘', iconSrc: null },
-    { name: 'Node.js', icon: '🟢', iconSrc: null },
-    { name: 'MongoDB', icon: '🍃', iconSrc: null },
-    { name: 'PostgreSQL', icon: '🐘', iconSrc: null },
-    { name: 'Docker', icon: '🐳', iconSrc: null },
-    { name: 'AWS', icon: '☁️', iconSrc: null },
-    { name: 'Git', icon: '🔧', iconSrc: null },
+    { 
+      name: 'React', 
+      iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg' 
+    },
+    { 
+      name: 'Spring Boot', 
+      iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg' 
+    },
+    { 
+      name: 'HTML5', 
+      iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg' 
+    },
+    { 
+      name: 'CSS3', 
+      iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg' 
+    },
+    { 
+      name: 'JavaScript', 
+      iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg' 
+    },
+    { 
+      name: 'TypeScript', 
+      iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg' 
+    },
+    { 
+      name: 'Node.js', 
+      iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg' 
+    },
+    { 
+      name: 'MongoDB', 
+      iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg' 
+    },
+    { 
+      name: 'PostgreSQL', 
+      iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' 
+    },
+    { 
+      name: 'Docker', 
+      iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg' 
+    },
+    { 
+      name: 'AWS', 
+      iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' 
+    },
+    { 
+      name: 'Git', 
+      iconSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg' 
+    },
   ];
 
   // Triple duplication for smoother infinite scroll
@@ -84,12 +120,11 @@ export default function TechCarousel() {
               key={`${tech.name}-${index}`}
               className="flex-shrink-0 w-48 h-28 bg-white rounded-xl shadow p-4 flex flex-col items-center justify-center transform hover:scale-105 transition-transform duration-300"
             >
-              {tech.iconSrc ? (
-                <img src={tech.iconSrc} alt={`${tech.name} logo`} className="h-12 w-12 mb-2 object-contain" />
-              ) : (
-                <div className="text-4xl mb-1">{tech.icon}</div>
-              )}
-
+              <img 
+                src={tech.iconSrc} 
+                alt={`${tech.name} logo`} 
+                className="h-12 w-12 mb-2 object-contain" 
+              />
               <h3 className="text-lg font-medium text-gray-800 text-center">
                 {tech.name}
               </h3>
