@@ -1,4 +1,4 @@
-import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
+import { useEffect, useId, useLayoutEffect, useRef } from 'react';
 
 function hexToRgba(hex, alpha = 1) {
   if (!hex) return `rgba(0,0,0,${alpha})`;
@@ -22,25 +22,11 @@ const ElectricBorder = ({ children, color = '#5227FF', speed = 1, chaos = 1, thi
   const svgRef = useRef(null);
   const rootRef = useRef(null);
   const strokeRef = useRef(null);
-  const [isMobile, setIsMobile] = useState(false);
-
-  // Detect mobile device
-  useEffect(() => {
-    const checkMobile = () => {
-      const mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
-        || window.innerWidth < 768;
-      setIsMobile(mobile);
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
 
   const updateAnim = () => {
     const svg = svgRef.current;
     const host = rootRef.current;
-    if (!svg || !host || isMobile) return;
+    if (!svg || !host) return;
 
     if (strokeRef.current) {
       strokeRef.current.style.filter = `url(#${filterId})`;
@@ -92,7 +78,7 @@ const ElectricBorder = ({ children, color = '#5227FF', speed = 1, chaos = 1, thi
   useEffect(() => {
     updateAnim();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [speed, chaos, isMobile]);
+  }, [speed, chaos]);
 
   useLayoutEffect(() => {
     if (!rootRef.current) return;
@@ -101,7 +87,7 @@ const ElectricBorder = ({ children, color = '#5227FF', speed = 1, chaos = 1, thi
     updateAnim();
     return () => ro.disconnect();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isMobile]);
+  }, []);
 
   const inheritRadius = {
     borderRadius: style?.borderRadius ?? 'inherit'
@@ -141,104 +127,61 @@ const ElectricBorder = ({ children, color = '#5227FF', speed = 1, chaos = 1, thi
     background: `linear-gradient(-30deg, ${hexToRgba(color, 0.8)}, transparent, ${color})`
   };
 
-  // Mobile fallback: animated gradient border
-  const mobileAnimatedStyle = {
-    ...inheritRadius,
-    borderWidth: thickness,
-    borderStyle: 'solid',
-    borderColor: 'transparent',
-    backgroundImage: `
-      linear-gradient(white, white),
-      linear-gradient(90deg, 
-        ${color} 0%, 
-        ${hexToRgba(color, 0.5)} 25%,
-        ${color} 50%,
-        ${hexToRgba(color, 0.5)} 75%,
-        ${color} 100%
-      )
-    `,
-    backgroundOrigin: 'border-box',
-    backgroundClip: 'padding-box, border-box',
-    animation: 'electricBorderMove 3s linear infinite'
-  };
-
   return (
-    <>
-      {isMobile && (
-        <style>{`
-          @keyframes electricBorderMove {
-            0% { background-position: 0 0, 0% 0; }
-            100% { background-position: 0 0, 200% 0; }
-          }
-        `}</style>
-      )}
-      
-      <div ref={rootRef} className={'relative isolate ' + (className ?? '')} style={style}>
-        {!isMobile && (
-          <svg
-            ref={svgRef}
-            className="absolute w-0 h-0 opacity-0 pointer-events-none"
-            style={{ position: 'absolute', left: 0, top: 0 }}
-            aria-hidden
-            focusable="false"
-          >
-            <defs>
-              <filter id={filterId} colorInterpolationFilters="sRGB" x="-200%" y="-200%" width="500%" height="500%">
-                <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise1" seed="1" />
-                <feOffset in="noise1" dx="0" dy="0" result="offsetNoise1">
-                  <animate attributeName="dy" values="700; 0" dur="6s" repeatCount="indefinite" calcMode="linear" />
-                </feOffset>
+    <div ref={rootRef} className={'relative isolate ' + (className ?? '')} style={style}>
+      <svg
+        ref={svgRef}
+        className="fixed -left-[10000px] -top-[10000px] w-[10px] h-[10px] opacity-[0.001] pointer-events-none"
+        aria-hidden
+        focusable="false"
+      >
+        <defs>
+          <filter id={filterId} colorInterpolationFilters="sRGB" x="-20%" y="-20%" width="140%" height="140%">
+            <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise1" seed="1" />
+            <feOffset in="noise1" dx="0" dy="0" result="offsetNoise1">
+              <animate attributeName="dy" values="700; 0" dur="6s" repeatCount="indefinite" calcMode="linear" />
+            </feOffset>
 
-                <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise2" seed="1" />
-                <feOffset in="noise2" dx="0" dy="0" result="offsetNoise2">
-                  <animate attributeName="dy" values="0; -700" dur="6s" repeatCount="indefinite" calcMode="linear" />
-                </feOffset>
+            <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise2" seed="1" />
+            <feOffset in="noise2" dx="0" dy="0" result="offsetNoise2">
+              <animate attributeName="dy" values="0; -700" dur="6s" repeatCount="indefinite" calcMode="linear" />
+            </feOffset>
 
-                <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise1" seed="2" />
-                <feOffset in="noise1" dx="0" dy="0" result="offsetNoise3">
-                  <animate attributeName="dx" values="490; 0" dur="6s" repeatCount="indefinite" calcMode="linear" />
-                </feOffset>
+            <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise1" seed="2" />
+            <feOffset in="noise1" dx="0" dy="0" result="offsetNoise3">
+              <animate attributeName="dx" values="490; 0" dur="6s" repeatCount="indefinite" calcMode="linear" />
+            </feOffset>
 
-                <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise2" seed="2" />
-                <feOffset in="noise2" dx="0" dy="0" result="offsetNoise4">
-                  <animate attributeName="dx" values="0; -490" dur="6s" repeatCount="indefinite" calcMode="linear" />
-                </feOffset>
+            <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise2" seed="2" />
+            <feOffset in="noise2" dx="0" dy="0" result="offsetNoise4">
+              <animate attributeName="dx" values="0; -490" dur="6s" repeatCount="indefinite" calcMode="linear" />
+            </feOffset>
 
-                <feComposite in="offsetNoise1" in2="offsetNoise2" result="part1" />
-                <feComposite in="offsetNoise3" in2="offsetNoise4" result="part2" />
-                <feBlend in="part1" in2="part2" mode="color-dodge" result="combinedNoise" />
-                <feDisplacementMap
-                  in="SourceGraphic"
-                  in2="combinedNoise"
-                  scale="30"
-                  xChannelSelector="R"
-                  yChannelSelector="B"
-                />
-              </filter>
-            </defs>
-          </svg>
-        )}
+            <feComposite in="offsetNoise1" in2="offsetNoise2" result="part1" />
+            <feComposite in="offsetNoise3" in2="offsetNoise4" result="part2" />
+            <feBlend in="part1" in2="part2" mode="color-dodge" result="combinedNoise" />
+            <feDisplacementMap
+              in="SourceGraphic"
+              in2="combinedNoise"
+              scale="30"
+              xChannelSelector="R"
+              yChannelSelector="B"
+            />
+          </filter>
+        </defs>
+      </svg>
 
-        <div className="absolute inset-0 pointer-events-none" style={inheritRadius}>
-          {isMobile ? (
-            // Simplified mobile version with animated gradient
-            <div className="absolute inset-0 box-border" style={mobileAnimatedStyle} />
-          ) : (
-            // Full desktop version with SVG filters
-            <>
-              <div ref={strokeRef} className="absolute inset-0 box-border" style={strokeStyle} />
-              <div className="absolute inset-0 box-border" style={glow1Style} />
-              <div className="absolute inset-0 box-border" style={glow2Style} />
-            </>
-          )}
-          <div className="absolute inset-0" style={bgGlowStyle} />
-        </div>
-
-        <div className="relative" style={inheritRadius}>
-          {children}
-        </div>
+      <div className="absolute inset-0 pointer-events-none" style={inheritRadius}>
+        <div ref={strokeRef} className="absolute inset-0 box-border" style={strokeStyle} />
+        <div className="absolute inset-0 box-border" style={glow1Style} />
+        <div className="absolute inset-0 box-border" style={glow2Style} />
+        <div className="absolute inset-0" style={bgGlowStyle} />
       </div>
-    </>
+
+      <div className="relative" style={inheritRadius}>
+        {children}
+      </div>
+    </div>
   );
 };
 
