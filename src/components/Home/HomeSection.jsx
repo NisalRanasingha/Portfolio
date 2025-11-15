@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ElectricBorder from '../ElectricBorder/ElectricBorder';
 
 export default function HomeSection() {
   const [firstLine, setFirstLine] = useState('');
@@ -15,7 +16,7 @@ export default function HomeSection() {
 
     let currentIndex = 0;
     const currentText = lines[currentLine];
-    
+
     const typingInterval = setInterval(() => {
       if (currentIndex <= currentText.length) {
         const typedText = currentText.slice(0, currentIndex);
@@ -86,13 +87,21 @@ export default function HomeSection() {
 
           {/* Right Image */}
           <div className="flex justify-center lg:justify-end">
-            <div className="bg-white rounded-full shadow-2xl overflow-hidden w-80 h-80 sm:w-96 sm:h-96 lg:w-[450px] lg:h-[450px]">
-              <img
-                src="/profileimage.jpg"
-                alt="Nisal Ranasinghe"
-                className="w-full h-full object-cover"
-              />
-            </div>
+            <ElectricBorder
+              color="#32373D"
+              thickness={10}
+              speed={0.5}
+              chaos={5}
+              style={{ borderRadius: '50%' }}
+            >
+              <div className="bg-white rounded-full shadow-2xl overflow-hidden w-80 h-80 sm:w-96 sm:h-96 lg:w-[450px] lg:h-[450px]">
+                <img
+                  src="/profileimage.jpg"
+                  alt="Nisal Ranasinghe"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </ElectricBorder>
           </div>
         </div>
       </div>

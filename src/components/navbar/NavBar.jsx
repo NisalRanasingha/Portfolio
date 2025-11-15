@@ -5,7 +5,7 @@ export default function NavBar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isManualScroll, setIsManualScroll] = useState(false);
 
-  const navLinks = ['Home', 'About', 'Process', 'Project', 'Services'];
+  const navLinks = ['Home', 'About', 'Project', 'Services'];
 
   // Listen for scroll to top event
   useEffect(() => {
@@ -19,7 +19,7 @@ export default function NavBar() {
       // Don't update if user manually clicked a link
       if (isManualScroll) return;
 
-      const sections = ['home', 'about', 'process', 'project', 'services', 'contact'];
+      const sections = ['home', 'about', 'project', 'services', 'contact'];
       let maxVisibleSection = null;
       let maxVisibility = 0;
 
@@ -69,7 +69,7 @@ export default function NavBar() {
     window.addEventListener('scroll', handleScroll);
 
     // Observe all sections
-    const sections = ['home', 'about', 'process', 'project', 'services', 'contact'];
+    const sections = ['home', 'about', 'project', 'services', 'contact'];
     sections.forEach((section) => {
       const element = document.getElementById(section);
       if (element) {
@@ -81,7 +81,7 @@ export default function NavBar() {
     
     // Clean up
     return () => {
-      const sections = ['home', 'about', 'process', 'project', 'services', 'contact'];
+      const sections = ['home', 'about', 'project', 'services', 'contact'];
       sections.forEach((section) => {
         const element = document.getElementById(section);
         if (element) {

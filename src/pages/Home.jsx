@@ -2,7 +2,6 @@ import React from 'react'
 import NavBar from '../components/navbar/NavBar'
 import HomeSection from '../components/Home/HomeSection'
 import AboutSection from '../components/About/AboutSection'
-import ProcessSection from '../components/Process/ProcessSection'
 import PortfolioSection from '../components/Portfolio/PortfolioSection'
 import ServicesSection from '../components/Services/ServicesSection'
 import ContactSection from '../components/Contact/ContactSection'
@@ -15,7 +14,6 @@ function Home() {
       <main className="pt-20">
         <HomeSection />
         <AboutSection />
-        <ProcessSection />
         <PortfolioSection />
         <TechCarousel />
         <ServicesSection />

@@ -35,7 +35,7 @@ export default function PortfolioSection() {
       category: "UI/UX DESIGN",
       title: "Product Admin Dashboard",
       description: "Implemented interactive design and analysis to increase audience comprehension and so on.",
-      image: "https://images.unsplash.com/photo-1555952494-efd681c7e3f9?w=600&h=400&fit=crop",
+      image: "/exchanza.jpg",
       bgColor: "from-green-300 to-green-200"
     },
     {
@@ -59,7 +59,7 @@ export default function PortfolioSection() {
         </div>
 
         {/* Portfolio Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 cursor-pointer">
           {projects.map((project, index) => (
             <div 
               key={index}
